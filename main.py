@@ -1,23 +1,13 @@
-def binary_search(arr, tar, start, end):
-    # start 인덱스가 end 인덱스를 넘기면 끝남
-    if start > end:
-        return None
-    mid = (start + end) // 2
-    if arr[mid] == tar:
-        return mid
-    elif tar < arr[mid]:
-        end = mid - 1
-    else:
-        start = mid + 1
-    return binary_search(arr, tar, start, end)
+d = [0] * 100
 
 
-n, target = map(int, input().split())
-array = list(map(int, input().split()))
+def fibo(x):
+    if x == 1 or x == 2:
+        return 1
+    if d[x] != 0:
+        return d[x]
+    d[x] = fibo(x - 1) + fibo(x - 2)
+    return d[x]
 
-result = binary_search(array, target, 0, n - 1)
 
-if result == None:
-    print("원소없음")
-else:
-    print(result + 1)
+print(fibo(6))
