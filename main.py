@@ -1,13 +1,17 @@
-d = [0] * 100
+x = int(input())
+d = [0] * x
 
 
-def fibo(x):
-    if x == 1 or x == 2:
-        return 1
-    if d[x] != 0:
-        return d[x]
-    d[x] = fibo(x - 1) + fibo(x - 2)
+def cal(x):
+    for i in range(2, x):
+        d[i] = d[i - 1] + 1
+        if i % 2 == 0:
+            min(d[i], d[i // 2] + 1)
+        if i % 3 == 0:
+            min(d[i], d[i // 3] + 1)
+        if i % 5 == 0:
+            min(d[i], d[i // 5] + 1)
     return d[x]
 
 
-print(fibo(6))
+print(cal(x))
