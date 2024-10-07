@@ -2,7 +2,7 @@ x = int(input())
 d = [0] * (x + 1)
 
 
-def cal(x):
+def one(x):
     for i in range(2, x + 1):
         d[i] = d[i - 1] + 1
         if i % 2 == 0:
@@ -11,7 +11,7 @@ def cal(x):
             d[i] = min(d[i], d[i // 3] + 1)
         if i % 5 == 0:
             d[i] = min(d[i], d[i // 5] + 1)
-    return d[x]
+    return d[i]
 
 
-print(cal(x))
+print(one(x))
